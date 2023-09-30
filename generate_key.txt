@@ -1,0 +1,8 @@
+---Generate Key
+openssl genrsa -out keypair.pem 2048
+
+--Extract Public Key
+openssl rsa -in keypair.pem -pubout -out public.pem
+
+--Extract Private Key in PKCS8 standard
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in keypair.pem -out private.pem
